@@ -30,9 +30,9 @@ body {
     box-shadow: 0 10px 30px var(--shadow-light);
     max-width: 900px;
     width: 100%;
-    display: flex; /* Masaüstünde yan yana */
+    display: flex;
     flex-direction: row;
-    overflow: hidden; /* Taşmayı engelle, yazı içinde kalır */
+    overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -41,9 +41,9 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Sol bölüm - İletişim Bilgileri */
+
 .left-section {
-    flex: 0 0 250px; /* Sabit genişlik */
+    flex: 0 0 250px;
     background-color: #f7f7f7;
     padding: 30px 20px;
     display: flex;
@@ -115,11 +115,11 @@ body {
 .contact-item span {
     font-size: 0.95em;
     font-weight: 500;
-    word-wrap: break-word; /* Uzun kelimeleri kes */
-    overflow-wrap: break-word; /* Modern alternatif */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* Sağ bölüm - Ön Yazı İçeriği */
+
 .right-section {
     flex: 1;
     padding: 40px;
@@ -178,8 +178,8 @@ body {
     text-align: justify;
     font-size: 1.0em;
     color: var(--text-color);
-    word-wrap: break-word; /* Uzun kelimeleri kes */
-    overflow-wrap: break-word; /* Modern alternatif */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .cover-letter-text p strong {
@@ -205,77 +205,76 @@ body {
     color: var(--accent-color-2);
 }
 
-/* Telefon ekranı için eklenen ve gizlenen mobil iletişim kısmı */
+
 .contact-info-mobile {
-    display: none; /* Masaüstünde gizli */
+    display: none; 
 }
 
 
-/* --- Mobil Uyumluluk (Telefon Boyutları) --- */
 @media (max-width: 768px) {
     body {
         padding: 10px;
     }
 
     .cover-letter-wrapper {
-        flex-direction: column; /* Mobil'de sütun halinde sırala */
+        flex-direction: column;
         border-radius: 8px;
         box-shadow: 0 5px 15px var(--shadow-light);
     }
 
-    /* Sol bölüm - İletişim Bilgileri (Mobil görünümde) */
+   
     .left-section {
-        flex: none; /* Sabit genişlik özelliğini kapat */
-        width: 100%; /* Tam genişlik ver */
-        border-right: none; /* Sağdaki çizgiyi kaldır */
-        border-bottom: 1px solid var(--border-color); /* Alta bir çizgi ekle */
-        padding: 20px 15px; /* Daha uygun boşluklar */
-        align-items: center; /* İçeriği ortala */
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px 15px;
+        align-items: center;
     }
 
     .left-section::before {
-        height: 2px; /* Dikey çizgiyi yatay yap */
-        width: 100%; /* Yatay çizgiyi tam genişlik yap */
+        height: 2px;
+        width: 100%;
         top: auto;
-        bottom: -1px; /* Alta hizala */
+        bottom: -1px;
         right: 0;
         left: 0;
         background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
     }
 
     .contact-info {
-        margin-top: 0; /* Boşluğu sıfırla */
-        padding-left: 0; /* Boşluğu sıfırla */
-        display: flex; /* İçerideki itemleri yan yana al */
-        flex-direction: column; /* İletişim itemlerini alt alta sırala */
+        margin-top: 0;
+        padding-left: 0;
+        display: flex; 
+        flex-direction: column;
         width: 100%;
-        text-align: center; /* Telefon metinlerini ortala */
+        text-align: center;
     }
 
     .contact-info h2 {
-        font-size: 1em; /* Biraz küçült */
+        font-size: 1em; 
         margin-bottom: 15px;
     }
 
     .contact-info h2::after {
-        margin: 8px auto 0 auto; /* Başlık altındaki çizgiyi ortala */
+        margin: 8px auto 0 auto;
     }
 
     .contact-item {
-        justify-content: center; /* İkon ve metni ortala */
+        justify-content: center;
         margin-bottom: 10px;
         font-size: 0.9em;
     }
 
     .right-section {
-        flex: none; /* Esnekliği kapat */
-        width: 100%; /* Tam genişlik ver */
-        padding: 25px 15px; /* Mobil için uygun boşluklar */
+        flex: none; 
+        width: 95%; 
+        padding: 25px 15px;
     }
 
     .header-content {
-        margin-bottom: 25px; /* Başlık altındaki boşluk */
-        text-align: center; /* Ortala */
+        margin-bottom: 25px;
+        text-align: center;
     }
 
     .header-content h1 {
@@ -294,7 +293,7 @@ body {
     .signature {
         margin-top: 25px;
         font-size: 1em;
-        text-align: center; /* Ortala */
+        text-align: center; 
     }
 }
 
