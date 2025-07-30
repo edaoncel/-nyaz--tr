@@ -1,284 +1,329 @@
 :root {
-            --background-color: #fcfcfc; /* Neredeyse beyaz */
-            --paper-color: #ffffff; /* Beyaz kağıt efekti */
-            --text-color: #333333; /* Koyu gri */
-            --light-text-color: #666666; /* Açık gri metin */
-            --border-color: #e0e0e0; /* Açık gri kenarlık */
-            --accent-color-1: #4CAF50; /* Yeşil - Resimdekinden daha canlı bir ton */
-            --accent-color-2: #2196F3; /* Mavi - Vurgu için */
-            --shadow-light: rgba(0, 0, 0, 0.08); /* Hafif gölge */
-            --transition-speed: 0.3s ease;
-        }
+    --background-color: #fcfcfc;
+    --paper-color: #ffffff;
+    --text-color: #333333;
+    --light-text-color: #666666;
+    --border-color: #e0e0e0;
+    --accent-color-1: #4CAF50;
+    --accent-color-2: #2196F3;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.3s ease;
+}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
 
-        .cover-letter-wrapper {
-            background-color: var(--paper-color);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px var(--shadow-light);
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            overflow: hidden; /* Dikey çizgi taşmasını engellemek için */
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
+.cover-letter-wrapper {
+    background-color: var(--paper-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    max-width: 900px;
+    width: 100%;
+    display: flex; /* Masaüstünde yan yana */
+    flex-direction: row;
+    overflow: hidden; /* Taşmayı engelle, yazı içinde kalır */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
 
-        .cover-letter-wrapper:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
+.cover-letter-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
 
-        /* Sol bölüm - İletişim Bilgileri */
-        .left-section {
-            flex: 0 0 250px; /* Sabit genişlik */
-            background-color: #f7f7f7; /* Resimdeki gibi hafif pembe/gri tonu */
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid var(--border-color); /* Sağdaki dikey çizgi */
-            position: relative;
-            z-index: 1;
-        }
+/* Sol bölüm - İletişim Bilgileri */
+.left-section {
+    flex: 0 0 250px; /* Sabit genişlik */
+    background-color: #f7f7f7;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    position: relative;
+    z-index: 1;
+}
 
-        .left-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -1px; /* Sağ kenara hizalama */
-            width: 2px; /* Çizgi kalınlığı */
-            height: 100%;
-            background: linear-gradient(to bottom, var(--accent-color-1), var(--accent-color-2)); /* Renkli dikey çizgi */
-            z-index: 2;
-        }
+.left-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-color-1), var(--accent-color-2));
+    z-index: 2;
+}
+
+.contact-info {
+    margin-top: 30px;
+    padding-left: 10px;
+}
+
+.contact-info h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.contact-info h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color-1);
+    margin-top: 8px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--light-text-color);
+    transition: color var(--transition-speed);
+}
+
+.contact-item:hover {
+    color: var(--accent-color-1);
+}
+
+.contact-item i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: var(--accent-color-2);
+    transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.contact-item:hover i {
+    transform: scale(1.1);
+    color: var(--accent-color-1);
+}
+
+.contact-item span {
+    font-size: 0.95em;
+    font-weight: 500;
+    word-wrap: break-word; /* Uzun kelimeleri kes */
+    overflow-wrap: break-word; /* Modern alternatif */
+}
+
+/* Sağ bölüm - Ön Yazı İçeriği */
+.right-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: var(--text-color);
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color var(--transition-speed);
+}
+
+.header-content h1:hover {
+    color: var(--accent-color-1);
+}
+
+.header-content h1::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
+    margin-top: 8px;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition-speed);
+}
+
+.header-content h1:hover::after {
+    transform: scaleX(1);
+}
+
+.header-content p {
+    font-size: 1.1em;
+    color: var(--light-text-color);
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.cover-letter-text p {
+    margin-bottom: 18px;
+    text-align: justify;
+    font-size: 1.0em;
+    color: var(--text-color);
+    word-wrap: break-word; /* Uzun kelimeleri kes */
+    overflow-wrap: break-word; /* Modern alternatif */
+}
+
+.cover-letter-text p strong {
+    color: var(--accent-color-1);
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.cover-letter-text p strong:hover {
+    color: var(--accent-color-2);
+}
+
+.signature {
+    text-align: right;
+    margin-top: 30px;
+    font-weight: 600;
+    color: var(--accent-color-1);
+    font-size: 1.1em;
+    transition: color var(--transition-speed);
+}
+
+.signature:hover {
+    color: var(--accent-color-2);
+}
+
+/* Telefon ekranı için eklenen ve gizlenen mobil iletişim kısmı */
+.contact-info-mobile {
+    display: none; /* Masaüstünde gizli */
+}
 
 
-        .contact-info {
-            margin-top: 30px;
-            padding-left: 10px; /* Resimdeki gibi hafif girinti */
-        }
+/* --- Mobil Uyumluluk (Telefon Boyutları) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
 
-        .contact-info h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1em;
-            color: var(--text-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            position: relative;
-        }
+    .cover-letter-wrapper {
+        flex-direction: column; /* Mobil'de sütun halinde sırala */
+        border-radius: 8px;
+        box-shadow: 0 5px 15px var(--shadow-light);
+    }
 
-        .contact-info h2::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent-color-1);
-            margin-top: 8px;
-        }
+    /* Sol bölüm - İletişim Bilgileri (Mobil görünümde) */
+    .left-section {
+        flex: none; /* Sabit genişlik özelliğini kapat */
+        width: 100%; /* Tam genişlik ver */
+        border-right: none; /* Sağdaki çizgiyi kaldır */
+        border-bottom: 1px solid var(--border-color); /* Alta bir çizgi ekle */
+        padding: 20px 15px; /* Daha uygun boşluklar */
+        align-items: center; /* İçeriği ortala */
+    }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: var(--light-text-color);
-            transition: color var(--transition-speed);
-        }
+    .left-section::before {
+        height: 2px; /* Dikey çizgiyi yatay yap */
+        width: 100%; /* Yatay çizgiyi tam genişlik yap */
+        top: auto;
+        bottom: -1px; /* Alta hizala */
+        right: 0;
+        left: 0;
+        background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
+    }
 
-        .contact-item:hover {
-            color: var(--accent-color-1);
-        }
+    .contact-info {
+        margin-top: 0; /* Boşluğu sıfırla */
+        padding-left: 0; /* Boşluğu sıfırla */
+        display: flex; /* İçerideki itemleri yan yana al */
+        flex-direction: column; /* İletişim itemlerini alt alta sırala */
+        width: 100%;
+        text-align: center; /* Telefon metinlerini ortala */
+    }
 
-        .contact-item i {
-            font-size: 1.2em;
-            margin-right: 10px;
-            color: var(--accent-color-2); /* İkon rengi */
-            transition: transform var(--transition-speed), color var(--transition-speed);
-        }
+    .contact-info h2 {
+        font-size: 1em; /* Biraz küçült */
+        margin-bottom: 15px;
+    }
 
-        .contact-item:hover i {
-            transform: scale(1.1);
-            color: var(--accent-color-1);
-        }
+    .contact-info h2::after {
+        margin: 8px auto 0 auto; /* Başlık altındaki çizgiyi ortala */
+    }
 
-        .contact-item span {
-            font-size: 0.95em;
-            font-weight: 500;
-        }
+    .contact-item {
+        justify-content: center; /* İkon ve metni ortala */
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
 
-        /* Sağ bölüm - Ön Yazı İçeriği */
-        .right-section {
-            flex: 1; /* Geri kalan alanı kapla */
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-        }
+    .right-section {
+        flex: none; /* Esnekliği kapat */
+        width: 100%; /* Tam genişlik ver */
+        padding: 25px 15px; /* Mobil için uygun boşluklar */
+    }
 
-        .header-content {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .header-content {
+        margin-bottom: 25px; /* Başlık altındaki boşluk */
+        text-align: center; /* Ortala */
+    }
 
-        .header-content h1 {
-            font-family: 'Playfair Display', serif; /* Daha şık bir font */
-            font-size: 2.8em;
-            color: var(--text-color);
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block; /* Çizgi için */
-            padding-bottom: 5px;
-            transition: color var(--transition-speed);
-        }
+    .header-content h1 {
+        font-size: 2em;
+    }
 
-        .header-content h1:hover {
-            color: var(--accent-color-1);
-        }
+    .header-content p {
+        font-size: 1em;
+    }
 
-        .header-content h1::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
-            margin-top: 8px;
-            border-radius: 2px;
-            transform: scaleX(0); /* Başlangıçta gizli */
-            transform-origin: center;
-            transition: transform var(--transition-speed);
-        }
+    .cover-letter-text p {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+    }
 
-        .header-content h1:hover::after {
-            transform: scaleX(1); /* Hover'da görünür */
-        }
+    .signature {
+        margin-top: 25px;
+        font-size: 1em;
+        text-align: center; /* Ortala */
+    }
+}
 
-        .header-content p {
-            font-size: 1.1em;
-            color: var(--light-text-color);
-            margin-top: 10px;
-            font-weight: 500;
-        }
-
-        .cover-letter-text p {
-            margin-bottom: 18px;
-            text-align: justify;
-            font-size: 1.0em;
-            color: var(--text-color);
-        }
-
-        .cover-letter-text p strong {
-            color: var(--accent-color-1);
-            font-weight: 600;
-            transition: color var(--transition-speed);
-        }
-
-        .cover-letter-text p strong:hover {
-            color: var(--accent-color-2);
-        }
-
-        .signature {
-            text-align: right;
-            margin-top: 30px;
-            font-weight: 600;
-            color: var(--accent-color-1);
-            font-size: 1.1em;
-            transition: color var(--transition-speed);
-        }
-
-        .signature:hover {
-            color: var(--accent-color-2);
-        }
-
-        /* Mobil Uyumluluk */
-        @media (max-width: 768px) {
-            .cover-letter-wrapper {
-                flex-direction: column; /* Mobil cihazlarda dikey istifleme */
-                border-radius: 8px;
-            }
-
-            .left-section {
-                flex: none;
-                width: auto; /* Genişlik otomatik ayarla */
-                border-right: none;
-                border-bottom: 1px solid var(--border-color); /* Altta yatay çizgi */
-                padding: 25px 20px;
-            }
-
-            .left-section::before {
-                height: 2px; /* Yatay çizgiye dönüştür */
-                width: 100%;
-                bottom: -1px;
-                top: auto;
-                left: 0;
-                background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
-            }
-
-            .right-section {
-                padding: 30px 25px;
-            }
-
-            .header-content {
-                margin-bottom: 30px;
-            }
-
-            .header-content h1 {
-                font-size: 2.2em;
-            }
-
-            .header-content p {
-                font-size: 1em;
-            }
-
-            .contact-info {
-                margin-top: 20px;
-            }
-
-            .contact-item {
-                font-size: 0.9em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            .cover-letter-wrapper {
-                box-shadow: 0 5px 15px var(--shadow-light);
-            }
-            .left-section, .right-section {
-                padding: 20px 15px;
-            }
-            .header-content h1 {
-                font-size: 1.8em;
-                letter-spacing: 1px;
-            }
-            .header-content p {
-                font-size: 0.9em;
-            }
-            .cover-letter-text p {
-                font-size: 0.9em;
-                margin-bottom: 15px;
-            }
-            .contact-info h2 {
-                font-size: 1em;
-            }
-            .contact-item span {
-                font-size: 0.85em;
-            }
-            .signature {
-                font-size: 1em;
-            }
-        }
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    .left-section {
+        padding: 15px 10px;
+    }
+    .contact-info h2 {
+        font-size: 0.9em;
+    }
+    .contact-item {
+        font-size: 0.8em;
+    }
+    .right-section {
+        padding: 20px 10px;
+    }
+    .header-content h1 {
+        font-size: 1.6em;
+    }
+    .header-content p {
+        font-size: 0.85em;
+    }
+    .cover-letter-text p {
+        font-size: 0.88em;
+    }
+    .signature {
+        font-size: 0.9em;
+    }
+}
